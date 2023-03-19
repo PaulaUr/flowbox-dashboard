@@ -1,25 +1,25 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from "react";
+import { listProducts } from "./slices";
+import { useAppDispatch } from "./hooks/customHooks";
+import FlowboxLogo from "./assets/svg/FlowboxLogo";
+import Dashboard from "./sections/dashboard/Dashboard";
+import "./App.css";
 
 function App() {
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(listProducts());
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <React.Fragment>
+      <div className="App-header">
+        <FlowboxLogo />
+        <div className="App-header-title">Photoslurp</div>
+      </div>
+      <Dashboard />
+    </React.Fragment>
   );
 }
 
