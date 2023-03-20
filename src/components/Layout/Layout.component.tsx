@@ -4,9 +4,9 @@ import { Product } from "../../sections/dashboard/products";
 import Card from "../Card/Card.component";
 import { Carousel } from "../Carousel/Carousel.component";
 import {
-  ListContainerStyle,
-  ListCardStyle,
-  CarouselLayout,
+  LayoutContainerStyle,
+  CardContainerStyle,
+  CarouselContainerStyle,
 } from "./Layout.styles";
 
 export const Layout = ({
@@ -19,17 +19,21 @@ export const Layout = ({
   return (
     <>
       {layout === LayoutType.CAROUSEL ? (
-        <CarouselLayout>
+        <CarouselContainerStyle>
           <Carousel products={products} />
-        </CarouselLayout>
+        </CarouselContainerStyle>
       ) : (
-        <ListContainerStyle layout={layout}>
+        <LayoutContainerStyle aria-label="Layout container" layout={layout}>
           {products.map((product) => (
-            <ListCardStyle key={product.id} layout={layout}>
+            <CardContainerStyle
+              aria-label="Layout card container"
+              key={product.id.toString()}
+              layout={layout}
+            >
               <Card product={product} layout={layout} />
-            </ListCardStyle>
+            </CardContainerStyle>
           ))}
-        </ListContainerStyle>
+        </LayoutContainerStyle>
       )}
     </>
   );

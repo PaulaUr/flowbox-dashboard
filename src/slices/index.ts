@@ -14,13 +14,13 @@ type fetchProductsError = {
   message: string;
 };
 
-type ProductsState = {
+export type ProductsState = {
   status: "loading" | "idle";
   error: string | null;
   products: Product[];
 };
 
-const initialState: ProductsState = {
+export const initialState: ProductsState = {
   products: [],
   error: null,
   status: "idle",
@@ -42,8 +42,6 @@ export const listProducts = createAsyncThunk<
   return (await response.json()) as Product[];
 });
 
-export const selectStatus = (state: RootState) => state.products.status;
-
 export const productSlice = createSlice({
   name: "products",
   initialState,
@@ -63,5 +61,8 @@ export const productSlice = createSlice({
     });
   },
 });
+
+export const selectStatus = (state: RootState) => state.products.status;
+export const selectProducts = (state: RootState) => state.products.products;
 
 export default productSlice.reducer;

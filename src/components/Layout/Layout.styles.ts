@@ -40,7 +40,7 @@ const applyLayoutToContainer = ({ layout }: { layout: string }) => {
   return ApplyLayout[layout];
 };
 
-export const ListContainerStyle = styled.div`
+export const LayoutContainerStyle = styled.div`
   display: grid;
   gap: 1rem;
   grid-auto-flow: dense;
@@ -51,7 +51,7 @@ export const ListContainerStyle = styled.div`
   ${applyLayoutToContainer}
 `;
 
-export const CarouselLayout = styled.div`
+export const CarouselContainerStyle = styled.div`
   margin: 10%;
   display: flex;
   flex-direction: row;
@@ -68,7 +68,7 @@ const applyLayoutToListCard = ({ layout }: { layout: string }) => {
   return ApplyLayout[layout];
 };
 
-export const ListCardStyle = styled.div`
+export const CardContainerStyle = styled.div`
   display: flex;
   margin: 8px;
   padding: 18px;
