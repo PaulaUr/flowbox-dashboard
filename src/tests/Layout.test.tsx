@@ -47,7 +47,7 @@ const productsMock: Product[] = [
   },
 ];
 describe("Layout component", () => {
-  it("Should render only the container Layout when  layout  prop is  Card and without children", () => {
+  it("Should only render the Layout container when the properties passed are Card and no products", () => {
     const props = {
       products: [],
       layout: LayoutType.CARD,
@@ -58,12 +58,11 @@ describe("Layout component", () => {
 
     const layoutCardElement = queryAllByLabelText("Layout card container");
 
-    expect(container.firstChild).toHaveStyle(`grid-auto-rows: "22rem"`);
-    //expect(container.firstChild).toHaveStyle("grid-auto-rows: 22rem");
+    expect(container.firstChild).toHaveStyle("grid-auto-rows: 22rem");
     expect(layoutCardElement).toHaveLength(0);
   });
 
-  it("Should render the Card Layout when there are products and layout prop is Card", () => {
+  it("Should render the Card Layout when there are products and layout properties is Card", () => {
     const props = {
       products: productsMock,
       layout: LayoutType.CARD,
@@ -74,11 +73,11 @@ describe("Layout component", () => {
 
     const layoutCardElement = getAllByLabelText("Layout card container");
 
-    expect(container.firstChild).toHaveStyle(`grid-auto-rows: "22rem"`);
+    expect(container.firstChild).toHaveStyle("grid-auto-rows: 22rem");
     expect(layoutCardElement).toHaveLength(2);
   });
 
-  it("Should render the List Layout when  layout  prop is  List", () => {
+  it("Should render the List Layout when  layout  properties is  List", () => {
     const props = {
       products: productsMock,
       layout: LayoutType.LIST,
@@ -92,7 +91,7 @@ describe("Layout component", () => {
     );
   });
 
-  it("Should render the Carousel Layout when  layout  prop is  Carousel", () => {
+  it("Should render the Carousel Layout when  layout  properties is  Carousel", () => {
     const props = {
       products: productsMock,
       layout: LayoutType.CAROUSEL,

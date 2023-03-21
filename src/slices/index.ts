@@ -1,15 +1,8 @@
-import {
-  createAsyncThunk,
-  createEntityAdapter,
-  createSlice,
-  PayloadAction,
-} from "@reduxjs/toolkit";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { RootState } from "../config/store";
 import { Product } from "../sections/dashboard/products";
 import { getProducts } from "../services/fetchProducts";
-import { ProductsResponse } from "../services/ProductsApiResponse";
 
-//const productsAdapter = createEntityAdapter<Product>();
 type fetchProductsError = {
   message: string;
 };

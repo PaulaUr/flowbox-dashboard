@@ -53,10 +53,14 @@ function Card(props: CardProps) {
         />
       </CardImgWrapperStyle>
       {showBody && (
-        <CardBodyStyle layout={props.layout}>
-          <CardTitleStyle> {title}</CardTitleStyle>
-          <CardDescriptionStyle>{description}</CardDescriptionStyle>
-          <CardPriceStyle>{price} EUR</CardPriceStyle>
+        <CardBodyStyle aria-label="Card body" layout={props.layout}>
+          <CardTitleStyle aria-label="Card body title"> {title}</CardTitleStyle>
+          <CardDescriptionStyle aria-label="Card body description">
+            {description}
+          </CardDescriptionStyle>
+          <CardPriceStyle aria-label="Card body price">
+            {price} EUR
+          </CardPriceStyle>
         </CardBodyStyle>
       )}
     </React.Fragment>
