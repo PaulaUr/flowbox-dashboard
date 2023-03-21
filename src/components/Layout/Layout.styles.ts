@@ -4,13 +4,13 @@ import { layoutsObjectType } from "../../model/LayoutObjectType";
 const cardStyle = () => {
   return `
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
-  grid-auto-rows: "22rem"
+  grid-auto-rows: 22rem
   `;
 };
 const gridStyle = () => {
   return `
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 25rem), 1fr));
-  grid-auto-rows: "20rem"
+  grid-auto-rows: 20rem
   `;
 };
 const listStyle = () => {
@@ -56,6 +56,16 @@ export const CarouselContainerStyle = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
+
+  background-color: #fff;
+
+  border-radius: 0.5rem;
+  box-shadow: 0.05rem 0.1rem 0.3rem -0.03rem rgb(114, 92, 185);
+
+  &:hover {
+    cursor: pointer;
+    opacity: 0.8;
+  }
 `;
 
 const applyLayoutToListCard = ({ layout }: { layout: string }) => {
@@ -68,7 +78,7 @@ const applyLayoutToListCard = ({ layout }: { layout: string }) => {
   return ApplyLayout[layout];
 };
 
-export const CardContainerStyle = styled.div`
+export const LayoutCardContainerStyle = styled.div`
   display: flex;
   margin: 8px;
   padding: 18px;

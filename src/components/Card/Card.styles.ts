@@ -18,9 +18,7 @@ const cardStyleToCardImageWrapper = () => {
 };
 const gridStyleToCardImageWrapper = () => {
   return `
-  height:100%;
-  width: calc(100% + 2rem);
-  margin: 0 -1rem;
+  max-height: 100%
   `;
 };
 const listStyleToCardImageWrapper = () => {
@@ -34,12 +32,15 @@ const cardStyleToCardImage = () => {
   return `
   max-width: 100%;
   height:150px;
+  object-position: bottom;
   `;
 };
 
 const gridStyleToCardImage = () => {
   return `
-  max-width: 100%;
+  height: 100%;
+  width: 100%;
+  aspect-ratio: 4/3
   `;
 };
 const listStyleToCardImage = () => {
@@ -47,6 +48,7 @@ const listStyleToCardImage = () => {
   width: auto;
   height: 100%;
   max-width: 100%;
+  object-position: bottom;
   `;
 };
 const listStyleToCardBody = () => {
@@ -90,7 +92,6 @@ export const CardImgWrapperStyle = styled.div`
 `;
 export const CardImgStyle = styled.img`
   object-fit: cover;
-  object-position: bottom;
   ${applyLayoutToCardImage}
 `;
 export const CardBodyStyle = styled.div`
